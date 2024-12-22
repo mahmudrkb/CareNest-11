@@ -9,7 +9,7 @@ import Question from "../components/Question";
 const HomeLayout = () => {
   return (
     <div className="roboto-thin">
-      <header className="container mx-auto p-3 my-5">
+      <header className="container mx-auto p-3 ">
         {" "}
         <Navbar></Navbar> 
       </header>
@@ -20,7 +20,7 @@ const HomeLayout = () => {
         
       </main>
 
-      <footer className="container mx-auto p-3 my-5">
+      <footer>
         <Footer></Footer>
       </footer>
     </div>

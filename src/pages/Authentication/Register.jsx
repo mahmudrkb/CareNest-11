@@ -1,13 +1,15 @@
 import Lottie from "lottie-react";
 import React, { useContext } from "react";
 import { FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import signup from "../../assets/json/signup.json";
 import { AuthContext } from "../../provider/AuthProvider";
 import toast from "react-hot-toast";
 
 const Register = () => {
   const { setUser,createNewUser, updateUserProfile,signInWithGoogle } = useContext(AuthContext);
+
+  const navigate=useNavigate()
 
 
 
@@ -27,7 +29,7 @@ const Register = () => {
       await updateUserProfile(name, photo)
       setUser({ ...result.user, photoURL: photo, displayName: name })
       toast.success('Signup Successful')
-      // navigate('/')
+      navigate('/')
     } catch (err) {
  
       toast.error(err?.message)

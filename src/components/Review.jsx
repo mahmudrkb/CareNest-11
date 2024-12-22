@@ -86,7 +86,7 @@ const Review = () => {
               />
             </figure>
             <div className="card-body max-w-xl ">
-              <h2 className="card-title">Zarin Tasnim</h2>
+              <h2 className="card-title">Zarin Tasmim</h2>
               <address>Associate Professor , Mohammadpur</address>
               <p>
                 “ CareNest.LTD services are very helpful for working women like

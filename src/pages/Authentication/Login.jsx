@@ -1,13 +1,14 @@
 import Lottie from "lottie-react";
 import React, { useContext } from "react";
 import { FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import login from "../../assets/json/login.json";
-import AuthProvider, { AuthContext } from "../../provider/AuthProvider";
+import { AuthContext } from "../../provider/AuthProvider";
 import toast from "react-hot-toast";
 
 const Login = () => {
   const { signInWithGoogle, signIn } = useContext(AuthContext);
+  const navigation=useNavigate()
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -18,6 +19,7 @@ const Login = () => {
     try {
       await signIn(email, password);
       toast.success("Signup Successful");
+      navigation('/')
     } catch (err) {
       toast.error(err?.message);
     }
