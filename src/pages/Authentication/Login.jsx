@@ -1,33 +1,46 @@
 import Lottie from "lottie-react";
-import React from "react";
+import React, { useContext } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import login from "../../../public/json/login.json"
+import login from "../../../public/json/login.json";
+import AuthProvider, { AuthContext } from "../../provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
+  const { signInWithGoogle } = useContext(AuthContext);
+
+  // Google Signin
+  const handleGoogleLogin = async () => {
+    try {
+      await signInWithGoogle();
+      toast.success("Signin Successful");
+
+    } catch (err) {
+      console.log(err);
+      toast.error(err?.message);
+    }
+  };
+
   return (
     <div>
-         <div className="  sm:mx-auto sm:w-full sm:max-w-sm">
-            <h2 className="mt-10 text-center text-3xl font-bold ">
-              <span className="text-indigo-600"> Log In</span> to your account
-            </h2>
-            <h3 className="text-center  mt-3">
-              {" "}
-              Don't have an Account ?
-              <span className=" text-indigo-600 hover:text-slate-600">
-                {" "}
-                <Link to={"/signup"}>Sign Up</Link>{" "}
-              </span>
-            </h3>
-          </div>
+      <div className="  sm:mx-auto sm:w-full sm:max-w-sm">
+        <h2 className="mt-10 text-center text-3xl font-bold ">
+          <span className="text-indigo-600"> Log In</span> to your account
+        </h2>
+        <h3 className="text-center  mt-3">
+          {" "}
+          Don't have an Account ?
+          <span className=" text-indigo-600 hover:text-slate-600">
+            {" "}
+            <Link to={"/signup"}>Sign Up</Link>{" "}
+          </span>
+        </h3>
+      </div>
       <div className="grid md:grid-cols-2 justify-center items-center">
-        
-      <div>
-        <Lottie className=" " animationData={login} loop={true} />
+        <div>
+          <Lottie className=" " animationData={login} loop={true} />
         </div>
         <div className="">
-         
-
           <div className=" sm:mx-auto border-2 rounded-lg bg-indigo-100 shadow-lg  p-10   sm:w-full sm:max-w-lg">
             <form method="POST" className="space-y-6">
               <div>
@@ -93,7 +106,7 @@ const Login = () => {
               <div className="text-center mt-3">
                 {" "}
                 <button
-                
+                  onClick={handleGoogleLogin}
                   className="btn hover:bg-indigo-600 hover:text-white hover:border-indigo-600 text-indigo-600 px-7 py-3 border-2 border-indigo-600 "
                 >
                   {" "}
@@ -104,8 +117,6 @@ const Login = () => {
             </p>
           </div>
         </div>
-
-       
       </div>
     </div>
   );
