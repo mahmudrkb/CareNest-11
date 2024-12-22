@@ -11,21 +11,16 @@ const HomeLayout = () => {
     <div className="roboto-thin">
       <header className="container mx-auto p-3 my-5">
         {" "}
-        <Navbar></Navbar> <Banner></Banner>
+        <Navbar></Navbar> 
       </header>
 
       <main>
         <Outlet></Outlet>
 
-        <section>
-          <Review></Review>
-        </section>
-        <section>
-          <Question></Question>
-        </section>
+        
       </main>
 
-      <footer>
+      <footer className="container mx-auto p-3 my-5">
         <Footer></Footer>
       </footer>
     </div>
