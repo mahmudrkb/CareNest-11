@@ -2,19 +2,32 @@ import Lottie from "lottie-react";
 import React, { useContext } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import login from "../../../public/json/login.json";
+import login from "../../assets/json/login.json";
 import AuthProvider, { AuthContext } from "../../provider/AuthProvider";
 import toast from "react-hot-toast";
 
 const Login = () => {
-  const { signInWithGoogle } = useContext(AuthContext);
+  const { signInWithGoogle, signIn } = useContext(AuthContext);
 
-  // Google Signin
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    try {
+      await signIn(email, password);
+      toast.success("Signup Successful");
+    } catch (err) {
+      toast.error(err?.message);
+    }
+  };
+
+  // Google login
   const handleGoogleLogin = async () => {
     try {
       await signInWithGoogle();
       toast.success("Signin Successful");
-
     } catch (err) {
       console.log(err);
       toast.error(err?.message);
@@ -42,7 +55,7 @@ const Login = () => {
         </div>
         <div className="">
           <div className=" sm:mx-auto border-2 rounded-lg bg-indigo-100 shadow-lg  p-10   sm:w-full sm:max-w-lg">
-            <form method="POST" className="space-y-6">
+            <form onSubmit={handleLogin} method="POST" className="space-y-6">
               <div>
                 <label
                   htmlFor="email"

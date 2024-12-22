@@ -2,7 +2,7 @@ import Lottie from "lottie-react";
 import React, { useContext } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import signup from "../../../public/json/signup.json";
+import signup from "../../assets/json/signup.json";
 import { AuthContext } from "../../provider/AuthProvider";
 import toast from "react-hot-toast";
 

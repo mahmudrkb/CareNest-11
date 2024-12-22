@@ -1,7 +1,7 @@
 import React from "react";
 
 import Lottie from 'lottie-react';
-import animationData from '../../public/json/fcq.json';
+import animationData from '../assets/json/fcq.json';
 
 const Question = () => {
   return (
