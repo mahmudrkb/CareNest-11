@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <div className="navbar bg-base-100 shadow-sm container  mx-auto">
       <div className="flex-1">
-        <Link to="/" className="flex md:gap-2 items-center">
+        <Link to="/" className="flex md:gap-3 items-center">
           <img className=" h-20" src={logo} alt="" />
         </Link>
       </div>
@@ -31,12 +31,10 @@ const Navbar = () => {
                 <div className="">Dashboard</div>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content  menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow  mt-3 "
+                  className="dropdown-content  menu bg-base-100 rounded-box z-[1] w-52 p-3 shadow  mt-3 "
                 >
                   <li>
-                    <Link to="/addService" >
-                      Add Service
-                    </Link>
+                    <Link to="/addService">Add Service</Link>
                   </li>
                   <li>
                     <Link to="/manage">Manage service</Link>
@@ -76,7 +74,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-3 shadow bg-base-100 rounded-box w-52"
             >
               <li className="mt-2">
                 <button

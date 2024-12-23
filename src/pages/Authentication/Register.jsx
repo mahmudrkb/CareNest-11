@@ -7,36 +7,32 @@ import { AuthContext } from "../../provider/AuthProvider";
 import toast from "react-hot-toast";
 
 const Register = () => {
-  const { setUser,createNewUser, updateUserProfile,signInWithGoogle } = useContext(AuthContext);
+  const { setUser, createNewUser, updateUserProfile, signInWithGoogle } =
+    useContext(AuthContext);
 
-  const navigate=useNavigate()
-
-
+  const navigate = useNavigate();
 
   // create new user
-  const handleCreateNewUser= async e=>{
-    e.preventDefault()
-    const form=e.target 
-    const name=form.name.value
-    const photo=form.photo.value
-    const email=form.email.value
-    const password=form.password.value
-   console.log(email,password)
+  const handleCreateNewUser = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const photo = form.photo.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
 
     try {
       //2. Registration
-      const result = await createNewUser(email, password)
-      await updateUserProfile(name, photo)
-      setUser({ ...result.user, photoURL: photo, displayName: name })
-      toast.success('Signup Successful')
-      navigate('/')
+      const result = await createNewUser(email, password);
+      await updateUserProfile(name, photo);
+      setUser({ ...result.user, photoURL: photo, displayName: name });
+      toast.success("Signup Successful");
+      navigate("/");
     } catch (err) {
- 
-      toast.error(err?.message)
+      toast.error(err?.message);
     }
-
-
-  }
+  };
 
   // Google Signin
   const handleGoogleLogin = async () => {
@@ -44,7 +40,7 @@ const Register = () => {
       await signInWithGoogle();
 
       toast.success("Signin Successful");
-      navigation('/')
+      navigation("/");
     } catch (err) {
       console.log(err);
       toast.error(err?.message);
@@ -74,8 +70,12 @@ const Register = () => {
           />
         </div>
 
-        <div className="mt-5 sm:mx-auto border-2 rounded-lg bg-indigo-100 shadow-lg  p-10   sm:w-full sm:max-w-lg">
-          <form onSubmit={handleCreateNewUser} method="POST" className="space-y-6">
+        <div className="mt-5 sm:mx-auto border-2 rounded-lg bg-indigo-100 shadow-lg  p-30   sm:w-full sm:max-w-lg">
+          <form
+            onSubmit={handleCreateNewUser}
+            method="POST"
+            className="space-y-6"
+          >
             <div>
               <label
                 htmlFor="text"

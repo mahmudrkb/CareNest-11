@@ -12,10 +12,7 @@ const Review = () => {
         </h1>
       </div>
       <Marquee pauseOnHover>
-        <div
-          className="flex gap-4"
-       
-        >
+        <div className="flex gap-4">
           {/* review-1 */}
           <div className="card lg:card-side bg-base-100 shadow-xl">
             <figure className="">

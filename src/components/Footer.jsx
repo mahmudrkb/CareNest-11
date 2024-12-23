@@ -1,7 +1,7 @@
 import logo from "../assets/logo.png";
 const Footer = () => {
   return (
-    <div className=" bg-neutral text-neutral-content p-10">
+    <div className=" bg-neutral text-neutral-content p-10 ">
       <footer className="footer container mx-auto">
         <div>
           <img className="w-auto h-24" src={logo} alt="" />
@@ -50,7 +50,8 @@ const Footer = () => {
       <footer className="footer footer-center p-4">
         <aside>
           <p>
-            Copyright © {new Date().getFullYear()} - All right reserved by CareNest Ltd
+            Copyright © {new Date().getFullYear()} - All right reserved by
+            CareNest Ltd
           </p>
         </aside>
       </footer>

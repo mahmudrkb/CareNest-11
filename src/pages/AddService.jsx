@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const AddService = () => {
   const { user } = useContext(AuthContext);
-  const navigate =useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,10 +29,10 @@ const AddService = () => {
       description,
     };
 
-    console.log(formData)
+    console.log(formData);
 
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/add-service`,formData);
+      await axios.post(`${import.meta.env.VITE_API_URL}/add-service`, formData);
       toast.success("Service Added Successfully");
       navigate("/service");
     } catch (err) {
@@ -46,7 +46,7 @@ const AddService = () => {
           <span className="text-indigo-600"> Add</span> Service
         </h2>
 
-        <section className=" mt-5 sm:mx-auto border-2 rounded-lg bg-indigo-100 shadow-lg  p-10   sm:w-full sm:max-w-2xl  ">
+        <section className=" mt-5 sm:mx-auto border-2 rounded-lg bg-indigo-100 shadow-lg  p-30   sm:w-full sm:max-w-2xl  ">
           <form onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
               <div>
@@ -123,7 +123,7 @@ const AddService = () => {
                 />
               </div>
             </div>
-            <div className="flex flex-col gap-2 mt-4">
+            <div className="flex flex-col gap-3 mt-4">
               <label className="text-gray-700 " htmlFor="photo">
                 Provider Photo
               </label>
@@ -136,7 +136,7 @@ const AddService = () => {
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
               />
             </div>
-            <div className="flex flex-col gap-2 mt-4">
+            <div className="flex flex-col gap-3 mt-4">
               <label className="text-gray-700 " htmlFor="description">
                 Description
               </label>

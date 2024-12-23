@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 
 const Login = () => {
   const { signInWithGoogle, signIn } = useContext(AuthContext);
-  const navigation=useNavigate()
+  const navigation = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -19,7 +19,7 @@ const Login = () => {
     try {
       await signIn(email, password);
       toast.success("Signup Successful");
-      navigation('/')
+      navigation("/");
     } catch (err) {
       toast.error(err?.message);
     }
@@ -30,7 +30,7 @@ const Login = () => {
     try {
       await signInWithGoogle();
       toast.success("Signin Successful");
-      navigation('/')
+      navigation("/");
     } catch (err) {
       console.log(err);
       toast.error(err?.message);
@@ -57,7 +57,7 @@ const Login = () => {
           <Lottie className=" " animationData={login} loop={true} />
         </div>
         <div className="">
-          <div className=" sm:mx-auto border-2 rounded-lg bg-indigo-100 shadow-lg  p-10   sm:w-full sm:max-w-lg">
+          <div className=" sm:mx-auto border-2 rounded-lg bg-indigo-100 shadow-lg  p-30   sm:w-full sm:max-w-lg">
             <form onSubmit={handleLogin} method="POST" className="space-y-6">
               <div>
                 <label

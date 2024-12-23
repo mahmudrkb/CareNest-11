@@ -4,17 +4,20 @@ import Banner from "./Banner";
 import Review from "./Review";
 import Question from "./Question";
 import Footer from "./Footer";
+import PopularService from "./PopularService";
 
 const Home = () => {
   return (
     <div>
-      <header className="container mx-auto p-3 my-5">
+      <header className="container mx-auto  ">
         {" "}
-        
         <Banner></Banner>
       </header>
 
       <main>
+        <section>
+          <PopularService></PopularService>
+        </section>
         <section>
           <Review></Review>
         </section>
@@ -22,8 +25,6 @@ const Home = () => {
           <Question></Question>
         </section>
       </main>
-
-     
     </div>
   );
 };
