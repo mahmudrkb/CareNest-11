@@ -2,9 +2,11 @@ import React, { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const AddService = () => {
   const { user } = useContext(AuthContext);
+  const navigate =useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,7 +21,7 @@ const AddService = () => {
       name1,
       price,
       area,
-      buyer: {
+      provider: {
         email: user?.email,
         name: user?.displayName,
         photo: user?.photoURL,
@@ -32,7 +34,7 @@ const AddService = () => {
     try {
       await axios.post(`${import.meta.env.VITE_API_URL}/add-service`,formData);
       toast.success("Service Added Successfully");
-      // navigate("/services");
+      navigate("/service");
     } catch (err) {
       toast.error(err.message);
     }

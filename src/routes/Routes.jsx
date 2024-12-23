@@ -5,6 +5,7 @@ import Login from "../pages/Authentication/Login";
 import Home from "../components/Home";
 import Register from "../pages/Authentication/Register";
 import AddService from "../pages/AddService";
+import AllService from "../pages/AllService";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
         path:"/addService",
         element:<AddService></AddService>
       },
+      {
+        path:"/service",
+        element:<AllService></AllService>
+      }
 
 
     ],
