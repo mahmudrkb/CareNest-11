@@ -1,8 +1,15 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ServiceCard from "../components/ServiceCard";
+import * as motion from "motion/react-client";
 
 const AllService = () => {
+  const box1 = {
+    width: 50,
+    height: 50,
+    background: "linear-gradient(to right, #ff0088, #0088ff)",
+    borderRadius: 5,
+  };
   const [services, setService] = useState([]);
 
   useEffect(() => {
@@ -29,10 +36,31 @@ const AllService = () => {
               "url(https://d3tl80hy6t5toy.cloudfront.net/wp-content/uploads/sites/4/2014/08/06051815/service-industry.jpg)",
           }}
         >
-          <div className="hero-overlay bg-opacity-60"></div>
+          <div className="hero-overlay bg-opacity-60">
+            <div className="flex justify-end m-16">
+              {" "}
+              <motion.div
+                className="m-10"
+                animate={{
+                  scale: [1, 2, 2, 1, 1],
+                  rotate: [0, 0, 180, 180, 0],
+                  borderRadius: ["0%", "0%", "50%", "50%", "0%"],
+                }}
+                transition={{
+                  duration: 2,
+                  ease: "easeInOut",
+                  times: [0, 0.2, 0.5, 0.8, 1],
+                  repeat: Infinity,
+                  repeatDelay: 1,
+                }}
+                style={box1}
+              />
+            </div>{" "}
+          </div>
           <div className="hero-content text-neutral-content text-center">
             <div className="max-w-md">
               <h1 className="mb-5 text-5xl font-bold">All Service Here</h1>
+
               <p className="mb-5">
                 Conveniently supply go forward human capital after
                 functionalized testing procedures. Dynamically maintain
@@ -40,8 +68,10 @@ const AllService = () => {
                 technology.
               </p>
             </div>
+            <div></div>
           </div>
         </div>
+
         <div className=" p-3  mt-10 md:flex justify-between items-center">
           <h1 className="text-3xl  font-bold">
             All Service : {services.length}

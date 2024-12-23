@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const ServiceCard = ({ service }) => {
+  AOS.init();
   const { _id, photo1, name1, price, area, description, provider } = service || {};
   return (
     <div className="my-10">
-      <div
+      <div data-aos="zoom-in-up"
         key={service._id}
         className="card grid grid-cols-1 md:grid-cols-2 lg:card-side bg-base-100  shadow-xl"
       >
