@@ -1,9 +1,42 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import toast from "react-hot-toast";
+import axios from "axios";
 
 const AddService = () => {
+  const { user } = useContext(AuthContext);
 
-    const {user}=useContext(AuthContext)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const photo1 = form.photo1.value;
+    const name1 = form.name1.value;
+    const price = parseFloat(form.price.value);
+    const area = form.area.value;
+    const description = form.description.value;
+    const formData = {
+      photo1,
+      name1,
+      price,
+      area,
+      buyer: {
+        email: user?.email,
+        name: user?.displayName,
+        photo: user?.photoURL,
+      },
+      description,
+    };
+
+    console.log(formData)
+
+    try {
+      await axios.post(`${import.meta.env.VITE_API_URL}/add-service`,formData);
+      toast.success("Service Added Successfully");
+      // navigate("/services");
+    } catch (err) {
+      toast.error(err.message);
+    }
+  };
   return (
     <div>
       <div className=" container mx-auto p-3 mb-5 ">
@@ -12,8 +45,7 @@ const AddService = () => {
         </h2>
 
         <section className=" mt-5 sm:mx-auto border-2 rounded-lg bg-indigo-100 shadow-lg  p-10   sm:w-full sm:max-w-2xl  ">
-          {/* onSubmit={handleSubmit} */}
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
               <div>
                 <label className="text-gray-700 " htmlFor="photo">
@@ -21,7 +53,7 @@ const AddService = () => {
                 </label>
                 <input
                   id="photo"
-                  name="photo"
+                  name="photo1"
                   type="URL"
                   className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
                 />
@@ -32,7 +64,7 @@ const AddService = () => {
                 </label>
                 <input
                   id="name"
-                  name="name"
+                  name="name1"
                   type="text"
                   className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
                 />
@@ -88,21 +120,20 @@ const AddService = () => {
                   className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
                 />
               </div>
-             
             </div>
-            <div className="flex flex-col gap-2 mt-4" >
-                <label className="text-gray-700 " htmlFor="photo">
-                  Provider Photo
-                </label>
-                <input
-                  id="photo"
-                  type="URL"
-                  name="Photo"
-                  defaultValue={user?.photoURL}
-                  disabled={true}
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
-                />
-              </div>
+            <div className="flex flex-col gap-2 mt-4">
+              <label className="text-gray-700 " htmlFor="photo">
+                Provider Photo
+              </label>
+              <input
+                id="photo"
+                type="URL"
+                name="Photo"
+                defaultValue={user?.photoURL}
+                disabled={true}
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+              />
+            </div>
             <div className="flex flex-col gap-2 mt-4">
               <label className="text-gray-700 " htmlFor="description">
                 Description
