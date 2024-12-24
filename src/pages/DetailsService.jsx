@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { Link, useParams } from "react-router-dom";
 
 const DetailsService = () => {
@@ -23,6 +24,9 @@ const DetailsService = () => {
 console.log(service)
   return (
     <div className="my-10 container mx-auto p-3">
+            <Helmet>
+        <title>Details Service || CareNest</title>
+      </Helmet>
       <div className="card grid grid-cols-1 md:grid-cols-2 lg:card-side bg-base-100  shadow-xl">
         <figure>
           <img className="h-full w-full " src={photo1} alt="Album" />
@@ -64,7 +68,7 @@ console.log(service)
             </div>
           </div>
           <div className="card-actions justify-end">
-            <Link className="btn btn-primary">Book Now</Link>
+            <Link to={`/booked/${_id}`} className="btn btn-primary">Book Now</Link>
           </div>
         </div>
       </div>

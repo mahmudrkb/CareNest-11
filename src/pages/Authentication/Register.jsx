@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import signup from "../../assets/json/signup.json";
 import { AuthContext } from "../../provider/AuthProvider";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
   const { setUser, createNewUser, updateUserProfile, signInWithGoogle } =
@@ -20,7 +21,7 @@ const Register = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+  
 
     try {
       //2. Registration
@@ -40,7 +41,7 @@ const Register = () => {
       await signInWithGoogle();
 
       toast.success("Signin Successful");
-      navigation("/");
+      navigate("/");
     } catch (err) {
       console.log(err);
       toast.error(err?.message);
@@ -48,6 +49,10 @@ const Register = () => {
   };
   return (
     <div>
+      {" "}
+      <Helmet>
+        <title>Register || CareNest</title>
+      </Helmet>
       <div className="  sm:mx-auto sm:w-full sm:max-w-sm">
         <h2 className="mt-10 text-center text-3xl font-bold ">
           <span className="text-indigo-600"> Sign Up</span> to your account

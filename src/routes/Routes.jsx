@@ -10,6 +10,7 @@ import DetailsService from "../pages/DetailsService";
 import PrivateRoute from "./PrivateRoute";
 import ManageService from "../pages/ManageService";
 import UpdateService from "../pages/UpdateService";
+import BookedService from "../pages/BookedService";
 
 const router = createBrowserRouter([
   {
@@ -46,13 +47,21 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path:"/manage",
-        element:<ManageService></ManageService>
+        path:"/booked/:id",
+        element:<BookedService></BookedService>
       },
       {
-        path:"/update/:id",
-        element:<UpdateService></UpdateService>
-      }
+        path: "/manage",
+        element: (
+          <PrivateRoute>
+            <ManageService></ManageService>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/update/:id",
+        element: <UpdateService></UpdateService>,
+      },
     ],
   },
 ]);

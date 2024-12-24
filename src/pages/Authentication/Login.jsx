@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import login from "../../assets/json/login.json";
 import { AuthContext } from "../../provider/AuthProvider";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const { signInWithGoogle, signIn } = useContext(AuthContext);
@@ -34,13 +35,16 @@ const Login = () => {
       toast.success("Signin Successful");
       navigate(from, { replace: true });
     } catch (err) {
-      console.log(err);
+     
       toast.error(err?.message);
     }
   };
 
   return (
     <div>
+            <Helmet>
+        <title>Login || CareNest</title>
+      </Helmet>
       <div className="  sm:mx-auto  sm:w-full sm:max-w-sm">
         <h2 className="mt-10 text-center text-3xl font-bold ">
           <span className="text-indigo-600"> Log In</span> to your account

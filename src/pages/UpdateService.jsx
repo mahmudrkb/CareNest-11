@@ -3,6 +3,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const UpdateService = () => {
     const {id}=useParams()
@@ -60,6 +61,9 @@ const UpdateService = () => {
   };
   return (
     <div>
+            <Helmet>
+        <title>Update Service || CareNest</title>
+      </Helmet>
       <div className=" container mx-auto p-3 mb-5 ">
         <h2 className="mt-10 text-center text-3xl font-bold ">
           <span className="text-indigo-600"> Update </span>Your Service

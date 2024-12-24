@@ -1,10 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
   const { user, userLogout } = useContext(AuthContext);
+
+  const navigate=useNavigate()
+  const handleLogout=()=>{
+    userLogout()
+    navigate("/")
+
+  }
   return (
     <div className="navbar bg-base-100 shadow-sm container  mx-auto">
       <div className="flex-1">
@@ -78,7 +85,7 @@ const Navbar = () => {
             >
               <li className="mt-2">
                 <button
-                  onClick={userLogout}
+                  onClick={handleLogout}
                   className="bg-gray-200 block text-center"
                 >
                   Logout

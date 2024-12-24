@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const ManageService = () => {
   const { user } = useContext(AuthContext);
@@ -49,6 +50,9 @@ const ManageService = () => {
 
   return (
     <div className="">
+            <Helmet>
+        <title>Manage Service || CareNest</title>
+      </Helmet>
       <div className="container mx-auto p-3 my-5">
         <div className="flex items-center gap-x-3">
           <h2 className=" text-xl md:text-3xl font-semibold   ">My Services</h2>

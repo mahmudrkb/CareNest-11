@@ -15,7 +15,7 @@ const PopularService = () => {
 
   const allServiceFetch = async () => {
     const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/allService`
+      `${import.meta.env.VITE_API_URL}/popularService`
     );
     setService(data);
   };

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import ServiceCard from "../components/ServiceCard";
 import * as motion from "motion/react-client";
 import "animate.css";
+import { Helmet } from "react-helmet";
 
 const AllService = () => {
   const box1 = {
@@ -12,7 +13,7 @@ const AllService = () => {
     borderRadius: 5,
   };
   const [services, setService] = useState([]);
-  const [search, setSearch] = useState([]);
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     allServiceFetch();
@@ -25,11 +26,14 @@ const AllService = () => {
     setService(data);
   };
 
-  const { _id, photo1, name1, price, area, description, provider } =
-    services || {};
-  console.log(services);
+  // const { _id, photo1, name1, price, area, description, provider } =
+  //   services || {};
+  // console.log(services);
   return (
     <div>
+            <Helmet>
+        <title>All Service || CareNest</title>
+      </Helmet>
       <div className="container mx-auto ">
         <div
           className="hero min-h-screen"
