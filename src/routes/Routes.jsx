@@ -9,6 +9,7 @@ import AllService from "../pages/AllService";
 import DetailsService from "../pages/DetailsService";
 import PrivateRoute from "./PrivateRoute";
 import ManageService from "../pages/ManageService";
+import UpdateService from "../pages/UpdateService";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
         path:"/manage",
         element:<ManageService></ManageService>
       },
+      {
+        path:"/update/:id",
+        element:<UpdateService></UpdateService>
+      }
     ],
   },
 ]);

@@ -1,14 +1,33 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-import toast from "react-hot-toast";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 
-const AddService = () => {
+const UpdateService = () => {
+    const {id}=useParams()
   const { user } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const navigate=useNavigate()
 
-  const handleSubmit = async (e) => {
+  const [service, setService] = useState([]);
+
+
+  useEffect(() => {
+    allServiceFetch();
+  }, [ id]);
+
+  const allServiceFetch = async () => {
+    const { data } = await axios.get(
+      `${import.meta.env.VITE_API_URL}/details/${id}`
+    );
+    setService(data);
+  };
+
+
+
+
+
+  const handleUpdateSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const photo1 = form.photo1.value;
@@ -32,9 +51,9 @@ const AddService = () => {
     console.log(formData);
 
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/add-service`, formData);
-      toast.success("Service Added Successfully");
-      navigate("/service");
+      await axios.put(`${import.meta.env.VITE_API_URL}/updateService/${id}`, formData);
+      toast.success("Service Updated Successfully");
+      navigate("/manage");
     } catch (err) {
       toast.error(err.message);
     }
@@ -43,11 +62,12 @@ const AddService = () => {
     <div>
       <div className=" container mx-auto p-3 mb-5 ">
         <h2 className="mt-10 text-center text-3xl font-bold ">
-          <span className="text-indigo-600"> Add</span> Your Service
+          <span className="text-indigo-600"> Update </span>Your Service
         </h2>
 
         <section className=" mt-5 sm:mx-auto border-2 rounded-lg bg-indigo-100 shadow-lg  p-30   sm:w-full sm:max-w-2xl  p-10 ">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleUpdateSubmit}>
+            
             <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
               <div>
                 <label className="text-gray-700 " htmlFor="photo">
@@ -56,6 +76,7 @@ const AddService = () => {
                 <input
                   id="photo"
                   name="photo1"
+                  defaultValue={service?.photo1}
                   type="URL"
                   className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
                 />
@@ -67,6 +88,7 @@ const AddService = () => {
                 <input
                   id="name"
                   name="name1"
+                  defaultValue={service?.name1}
                   type="text"
                   className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
                 />
@@ -79,6 +101,7 @@ const AddService = () => {
                   id="price"
                   name="price"
                   type="number"
+                  defaultValue={service?.price}
                   className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
                 />
               </div>
@@ -91,6 +114,7 @@ const AddService = () => {
                   id="area"
                   name="area"
                   type="text"
+                  defaultValue={service?.area}
                   className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
                 />
               </div>
@@ -143,6 +167,7 @@ const AddService = () => {
               <textarea
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
                 name="description"
+                defaultValue={service?.description}
                 id="description"
               ></textarea>
             </div>
@@ -161,4 +186,4 @@ const AddService = () => {
   );
 };
 
-export default AddService;
+export default UpdateService;
