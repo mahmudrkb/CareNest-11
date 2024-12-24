@@ -1,14 +1,16 @@
 import Lottie from "lottie-react";
 import React, { useContext } from "react";
 import { FaGoogle } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import login from "../../assets/json/login.json";
 import { AuthContext } from "../../provider/AuthProvider";
 import toast from "react-hot-toast";
 
 const Login = () => {
   const { signInWithGoogle, signIn } = useContext(AuthContext);
-  const navigation = useNavigate();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state || "/";
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -19,7 +21,7 @@ const Login = () => {
     try {
       await signIn(email, password);
       toast.success("Signup Successful");
-      navigation("/");
+      navigate(from, { replace: true });
     } catch (err) {
       toast.error(err?.message);
     }
@@ -30,7 +32,7 @@ const Login = () => {
     try {
       await signInWithGoogle();
       toast.success("Signin Successful");
-      navigation("/");
+      navigate(from, { replace: true });
     } catch (err) {
       console.log(err);
       toast.error(err?.message);
@@ -39,7 +41,7 @@ const Login = () => {
 
   return (
     <div>
-      <div className="  sm:mx-auto sm:w-full sm:max-w-sm">
+      <div className="  sm:mx-auto  sm:w-full sm:max-w-sm">
         <h2 className="mt-10 text-center text-3xl font-bold ">
           <span className="text-indigo-600"> Log In</span> to your account
         </h2>
@@ -52,12 +54,12 @@ const Login = () => {
           </span>
         </h3>
       </div>
-      <div className="grid md:grid-cols-2 justify-center items-center">
+      <div className="grid  md:grid-cols-2 justify-center items-center">
         <div>
           <Lottie className=" " animationData={login} loop={true} />
         </div>
         <div className="">
-          <div className=" sm:mx-auto border-2 rounded-lg bg-indigo-100 shadow-lg  p-30   sm:w-full sm:max-w-lg">
+          <div className=" sm:mx-auto border-2 p-10 rounded-lg bg-indigo-100 shadow-lg  p-30   sm:w-full sm:max-w-lg">
             <form onSubmit={handleLogin} method="POST" className="space-y-6">
               <div>
                 <label

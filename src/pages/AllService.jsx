@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ServiceCard from "../components/ServiceCard";
 import * as motion from "motion/react-client";
+import 'animate.css';
 
 const AllService = () => {
   const box1 = {
@@ -59,9 +60,9 @@ const AllService = () => {
           </div>
           <div className="hero-content text-neutral-content text-center">
             <div className="max-w-md">
-              <h1 className="mb-5 text-5xl font-bold">All Service Here</h1>
+              <h1 className="mb-5 animate__animated  animate__backInDown text-3xl md:text-5xl font-bold">All Service Here</h1>
 
-              <p className="mb-5">
+              <p className="mb-5  animate__animated  animate__backInUp">
                 Conveniently supply go forward human capital after
                 functionalized testing procedures. Dynamically maintain
                 prospective methods of empowerment via low-risk high-yield

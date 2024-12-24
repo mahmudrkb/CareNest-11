@@ -70,7 +70,7 @@ const Register = () => {
           />
         </div>
 
-        <div className="mt-5 sm:mx-auto border-2 rounded-lg bg-indigo-100 shadow-lg  p-30   sm:w-full sm:max-w-lg">
+        <div className="mt-5 sm:mx-auto border-2 p-10 rounded-lg bg-indigo-100 shadow-lg  p-30   sm:w-full sm:max-w-lg">
           <form
             onSubmit={handleCreateNewUser}
             method="POST"

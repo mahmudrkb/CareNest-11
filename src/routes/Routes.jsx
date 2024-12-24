@@ -7,6 +7,8 @@ import Register from "../pages/Authentication/Register";
 import AddService from "../pages/AddService";
 import AllService from "../pages/AllService";
 import DetailsService from "../pages/DetailsService";
+import PrivateRoute from "./PrivateRoute";
+
 
 const router = createBrowserRouter([
   {
@@ -19,27 +21,29 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path:"/login",
-        element:<Login></Login>
+        path: "/login",
+        element: <Login></Login>,
       },
       {
-        path:"/signup",
-        element:<Register></Register>
+        path: "/signup",
+        element: <Register></Register>,
       },
       {
-        path:"/addService",
-        element:<AddService></AddService>
+        path: "/addService",
+        element: <AddService></AddService>,
       },
       {
-        path:"/service",
-        element:<AllService></AllService>
+        path: "/service",
+        element: <AllService></AllService>,
       },
       {
-        path:"/details/:id",
-        element:<DetailsService></DetailsService>
-      }
-
-
+        path: "/details/:id",
+        element: (
+          <PrivateRoute>
+            <DetailsService></DetailsService>
+          </PrivateRoute>
+        ),
+      },
     ],
   },
 ]);
