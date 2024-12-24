@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ServiceCard from "../components/ServiceCard";
 import * as motion from "motion/react-client";
-import 'animate.css';
+import "animate.css";
 
 const AllService = () => {
   const box1 = {
@@ -12,14 +12,15 @@ const AllService = () => {
     borderRadius: 5,
   };
   const [services, setService] = useState([]);
+  const [search, setSearch] = useState([]);
 
   useEffect(() => {
     allServiceFetch();
-  }, []);
+  }, [ search]);
 
   const allServiceFetch = async () => {
     const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/allService`
+      `${import.meta.env.VITE_API_URL}/allService?search=${search}`
     );
     setService(data);
   };
@@ -60,7 +61,9 @@ const AllService = () => {
           </div>
           <div className="hero-content text-neutral-content text-center">
             <div className="max-w-md">
-              <h1 className="mb-5 animate__animated  animate__backInDown text-3xl md:text-5xl font-bold">All Service Here</h1>
+              <h1 className="mb-5 animate__animated  animate__backInDown text-3xl md:text-5xl font-bold">
+                All Service Here
+              </h1>
 
               <p className="mb-5  animate__animated  animate__backInUp">
                 Conveniently supply go forward human capital after
@@ -83,6 +86,7 @@ const AllService = () => {
                 className="px-3   text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent"
                 type="text"
                 name="search"
+                onChange={(e) => setSearch(e.target.value)}
                 placeholder="Enter Service Name"
                 aria-label="Enter Service Name"
               />
