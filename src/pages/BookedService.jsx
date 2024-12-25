@@ -1,7 +1,65 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
+import { AuthContext } from "../provider/AuthProvider";
+import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const BookedService = () => {
+  const { user } = useContext(AuthContext);
+  const { id } = useParams();
+  const navigate=useNavigate()
+
+  const [services, setService] = useState([]);
+
+  useEffect(() => {
+    allServiceFetch();
+  }, []);
+
+  const allServiceFetch = async () => {
+    const { data } = await axios.get(
+      `${import.meta.env.VITE_API_URL}/details/${id}`
+    );
+    setService(data);
+  };
+
+  const handleBooked =async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const id = form.id.value;
+    const serviceName = form.serviceName.value;
+    const servicePhoto = form.servicePhoto.value;
+    const providerEmail = form.providerEmail.value;
+    const providerName = form.providerName.value;
+    const userEmail = form.userEmail.value;
+    const userName = form.userName.value;
+    const date = form.date.value;
+    const instruction = form.instruction.value;
+    const price = parseFloat(form.price.value);
+    const formData = {
+      id,
+      serviceName,
+      servicePhoto,
+      providerEmail,
+      providerName,
+      userEmail,
+      userName,
+      date,
+      instruction,
+      price,
+    };
+
+    console.log(formData);
+    
+    try {
+      await axios.post(`${import.meta.env.VITE_API_URL}/bookedService`, formData);
+      toast.success("Service Booked Successfully");
+      navigate("/booked");
+    } catch (err) {
+      toast.error(err.message);
+    }
+  };
+
   return (
     <div>
       <Helmet>
@@ -13,17 +71,17 @@ const BookedService = () => {
         </h2>
 
         <section className=" mt-5 sm:mx-auto border-2 rounded-lg bg-indigo-100 shadow-lg  p-30   sm:w-full sm:max-w-2xl  p-10 ">
-          <form>
-            {/* onSubmit={handleSubmit} */}
+          <form onSubmit={handleBooked}>
             <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
               <div>
-                <label className="text-gray-700 " htmlFor="photo">
+                <label className="text-gray-700 " htmlFor="id">
                   Service Id
                 </label>
                 <input
-                  id="photo"
-                  name="photo1"
-                  type="URL"
+                  id="id"
+                  name="id"
+                  type="text"
+                  defaultValue={services?._id}
                   disabled={true}
                   className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
                 />
@@ -34,8 +92,9 @@ const BookedService = () => {
                 </label>
                 <input
                   id="name"
-                  name="name1"
+                  name="serviceName"
                   type="text"
+                  defaultValue={services?.name1}
                   disabled={true}
                   className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
                 />
@@ -46,32 +105,35 @@ const BookedService = () => {
                 </label>
                 <input
                   id="photo"
-                  name="photo1"
+                  name="servicePhoto"
                   type="URL"
+                  defaultValue={services?.photo1}
                   disabled={true}
                   className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
                 />
               </div>
               <div>
-                <label className="text-gray-700 " htmlFor="price">
+                <label className="text-gray-700 " htmlFor="providerEmail">
                   Provider Email
                 </label>
                 <input
-                  id="price"
-                  name="price"
-                  type="number"
+                  id="providerEmail"
+                  name="providerEmail"
+                  type="email"
+                  defaultValue={services?.provider?.email}
                   disabled={true}
                   className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
                 />
               </div>{" "}
               <div>
-                <label className="text-gray-700 " htmlFor="price">
+                <label className="text-gray-700 " htmlFor="providerName">
                   Provider Name
                 </label>
                 <input
-                  id="price"
-                  name="price"
-                  type="number"
+                  id="providerName"
+                  name="providerName"
+                  type="text"
+                  defaultValue={services?.provider?.name}
                   disabled={true}
                   className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
                 />
@@ -83,8 +145,8 @@ const BookedService = () => {
                 <input
                   id="emailAddress"
                   type="email"
-                  name="email"
-                  // defaultValue={user?.email}
+                  name="userEmail"
+                  defaultValue={user?.email}
                   disabled={true}
                   className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
                 />
@@ -95,33 +157,33 @@ const BookedService = () => {
                 </label>
                 <input
                   id=" providerName"
-                  type="name"
-                  name="name"
-                  // defaultValue={user?.displayName}
+                  type="text"
+                  name="userName"
+                  defaultValue={user?.displayName}
                   disabled={true}
                   className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
                 />
               </div>
               <div>
-                <label className="text-gray-700 " htmlFor="price">
+                <label className="text-gray-700 " htmlFor="date">
                   Service Taking Date
                 </label>
                 <input
-                  id="price"
-                  name="price"
-                  type="number"
+                  id="date"
+                  name="date"
+                  type="date"
                   className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
                 />
               </div>
             </div>
             <div className="flex flex-col gap-3 mt-4">
-              <label className="text-gray-700 " htmlFor="description">
+              <label className="text-gray-700 " htmlFor="instruction">
                 Special Instruction
               </label>
               <textarea
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
-                name="description"
-                id="description"
+                name="instruction"
+                id="instruction"
                 placeholder="Customized Service Plane Here"
               ></textarea>
             </div>
@@ -134,6 +196,7 @@ const BookedService = () => {
                 id="price"
                 name="price"
                 type="number"
+                defaultValue={services?.price}
                 disabled={true}
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
               />
