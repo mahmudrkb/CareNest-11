@@ -47,6 +47,7 @@ const BookedService = () => {
       date,
       instruction,
       price,
+      status:"Pending"
     };
 
     console.log(formData);

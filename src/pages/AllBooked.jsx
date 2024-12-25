@@ -84,14 +84,14 @@ const AllBooked = () => {
 
                     {bookedServices?.map(
                       (booked) => (
-                        // user.email === booked.userEmail && (
+                       
                         <tr key={booked._id}>
                           <td className="px-4 py-4 text-sm text-gray-800  whitespace-nowrap">
                             {booked?.serviceName}
                           </td>
 
                           <td className="px-4 py-4 text-sm text-gray-800  whitespace-nowrap">
-                            ${booked?.price}
+                        <span className="px-2 py-1 rounded-full bg-red-200 text-red-800">    ${booked?.price}</span>
                           </td>
 
                           <td className="px-4 py-4 text-sm whitespace-nowrap">
@@ -102,10 +102,14 @@ const AllBooked = () => {
                           <td className="px-4 py-4 text-sm text-gray-800  whitespace-nowrap">
                             {booked?.providerEmail}
                           </td>
-                          <td className="px-4 py-4 text-sm whitespace-nowrap"></td>
+                          <td className="px-4 py-4 text-sm whitespace-nowrap  "><span className= " px-2 py-1 rounded-full bg-green-200 text-green-800">
+                          {booked.status}</span></td>
+
+                          
                         </tr>
+                        
                       )
-                      // )
+                   
                     )}
                   </tbody>
                 </table>

@@ -12,6 +12,7 @@ import ManageService from "../pages/ManageService";
 import UpdateService from "../pages/UpdateService";
 import BookedService from "../pages/BookedService";
 import AllBooked from "../pages/AllBooked";
+import TodoService from "../pages/TodoService";
 
 const router = createBrowserRouter([
   {
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
         path: "/update/:id",
         element: <UpdateService></UpdateService>,
       },
+      {
+        path:"/todo",
+        element:<TodoService></TodoService>
+      }
     ],
   },
 ]);
