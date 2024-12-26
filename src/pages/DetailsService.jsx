@@ -23,7 +23,7 @@ const DetailsService = () => {
 
   const { _id, photo1, name1, price, area, description, provider } =
     service || [];
-console.log(service)
+// console.log(service)
   return (
     <div className="my-10 container mx-auto p-3">
             <Helmet>

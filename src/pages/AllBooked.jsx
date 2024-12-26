@@ -21,7 +21,7 @@ const AllBooked = () => {
     );
     setBookedServices(data);
   };
-  console.log(bookedServices)
+  // console.log(bookedServices)
 
   return (
     <div className="container mx-auto p-3 my-5">

@@ -50,7 +50,7 @@ const BookedService = () => {
       status: "Pending",
     };
 
-    console.log(formData);
+    // console.log(formData);
 
     try {
       await axios.post(

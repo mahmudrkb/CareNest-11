@@ -51,7 +51,7 @@ const UpdateService = () => {
       description,
     };
 
-    console.log(formData);
+    // console.log(formData);
 
     try {
       await axiosSecure.put(`/updateService/${id}`, formData);

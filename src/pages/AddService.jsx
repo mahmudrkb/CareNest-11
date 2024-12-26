@@ -33,7 +33,7 @@ const AddService = () => {
       description,
     };
 
-    console.log(formData);
+    // console.log(formData);
 
     try {
       await axiosSecure.post(`/add-service`, formData,);

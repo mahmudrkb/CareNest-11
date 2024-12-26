@@ -23,12 +23,12 @@ const TodoService = () => {
   if(prevStatus===status|| prevStatus==="Completed") return console.log("already completed")
 try{
     const {data}=await axiosSecure.patch(`/statusUpdate/${id}` , {status})
-    console.log(data)
+    // console.log(data)
     bookedDataFetch();
 
 
 }catch(err){
-console.log(err.message)
+// console.log(err.message)
 }
 
   }
