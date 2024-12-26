@@ -4,8 +4,10 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const UpdateService = () => {
+  const axiosSecure=useAxiosSecure()
     const {id}=useParams()
   const { user } = useContext(AuthContext);
   const navigate=useNavigate()
@@ -18,8 +20,8 @@ const UpdateService = () => {
   }, [ id]);
 
   const allServiceFetch = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/details/${id}`
+    const { data } = await axiosSecure.get(
+      `/details/${id}`
     );
     setService(data);
   };
@@ -52,7 +54,7 @@ const UpdateService = () => {
     console.log(formData);
 
     try {
-      await axios.put(`${import.meta.env.VITE_API_URL}/updateService/${id}`, formData);
+      await axiosSecure.put(`/updateService/${id}`, formData);
       toast.success("Service Updated Successfully");
       navigate("/manage");
     } catch (err) {

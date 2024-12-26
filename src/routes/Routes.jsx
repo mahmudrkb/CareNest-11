@@ -34,7 +34,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/addService",
-        element: <AddService></AddService>,
+        element: (
+          <PrivateRoute>
+            <AddService></AddService>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/service",
@@ -49,13 +53,21 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path:"/booked/:id",
-        element:<BookedService></BookedService>
+        path: "/booked/:id",
+        element: (
+          <PrivateRoute>
+            {" "}
+            <BookedService></BookedService>
+          </PrivateRoute>
+        ),
       },
       {
-        path:"/booked",
-        element:<AllBooked></AllBooked>
-
+        path: "/booked",
+        element: (
+          <PrivateRoute>
+            <AllBooked></AllBooked>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/manage",
@@ -70,9 +82,13 @@ const router = createBrowserRouter([
         element: <UpdateService></UpdateService>,
       },
       {
-        path:"/todo",
-        element:<TodoService></TodoService>
-      }
+        path: "/todo",
+        element: (
+          <PrivateRoute>
+            <TodoService></TodoService>,
+          </PrivateRoute>
+        ),
+      },
     ],
   },
 ]);

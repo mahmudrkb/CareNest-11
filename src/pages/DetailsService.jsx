@@ -2,8 +2,10 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link, useParams } from "react-router-dom";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const DetailsService = () => {
+  const axiosSecure=useAxiosSecure()
   const { id } = useParams();
 
   const [service, setService] = useState(null);
@@ -13,8 +15,8 @@ const DetailsService = () => {
   }, [id]);
 
   const singleDataFetch = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/details/${id}`
+    const { data } = await axiosSecure.get(
+      `/details/${id}`
     );
     setService(data);
   };

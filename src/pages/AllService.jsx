@@ -4,8 +4,10 @@ import ServiceCard from "../components/ServiceCard";
 import * as motion from "motion/react-client";
 import "animate.css";
 import { Helmet } from "react-helmet";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const AllService = () => {
+  const axiosSecure=useAxiosSecure()
   const box1 = {
     width: 50,
     height: 50,
@@ -20,8 +22,9 @@ const AllService = () => {
   }, [ search]);
 
   const allServiceFetch = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/allService?search=${search}`
+    const { data } = await axiosSecure.get(
+      `/allService?search=${search}`,
+      
     );
     setService(data);
   };

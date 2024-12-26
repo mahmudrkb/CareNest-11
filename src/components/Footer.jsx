@@ -5,7 +5,7 @@ const Footer = () => {
     <div className=" bg-neutral text-neutral-content p-10 ">
       <footer className="footer container mx-auto">
         <div>
-          <img className="w-auto h-24" src={logo} alt="" />
+          <img className="w-auto bg-slate-300 rounded-full h-24" src={logo} alt="" />
           <p>CareNest Ltd.</p>
           <p>Providing reliable tech since 2024</p>
         </div>

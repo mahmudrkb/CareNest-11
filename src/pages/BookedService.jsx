@@ -4,11 +4,13 @@ import { AuthContext } from "../provider/AuthProvider";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const BookedService = () => {
+  const  axiosSecure  = useAxiosSecure();
   const { user } = useContext(AuthContext);
   const { id } = useParams();
-  const navigate=useNavigate()
+  const navigate = useNavigate();
 
   const [services, setService] = useState([]);
 
@@ -17,13 +19,11 @@ const BookedService = () => {
   }, []);
 
   const allServiceFetch = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/details/${id}`
-    );
+    const { data } = await axiosSecure.get(`/details/${id}`);
     setService(data);
   };
 
-  const handleBooked =async (e) => {
+  const handleBooked = async (e) => {
     e.preventDefault();
     const form = e.target;
     const id = form.id.value;
@@ -47,13 +47,16 @@ const BookedService = () => {
       date,
       instruction,
       price,
-      status:"Pending"
+      status: "Pending",
     };
 
     console.log(formData);
-    
+
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/bookedService`, formData);
+      await axios.post(
+        `${import.meta.env.VITE_API_URL}/bookedService`,
+        formData
+      );
       toast.success("Service Booked Successfully");
       navigate("/booked");
     } catch (err) {

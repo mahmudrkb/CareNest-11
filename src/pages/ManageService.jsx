@@ -4,8 +4,10 @@ import { AuthContext } from "../provider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const ManageService = () => {
+  const axiosSecure=useAxiosSecure()
   const { user } = useContext(AuthContext);
 
   const [services, setService] = useState([]);
@@ -15,8 +17,8 @@ const ManageService = () => {
   }, []);
 
   const allServiceFetch = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/myService/${user?.email}`
+    const { data } = await axiosSecure.get(
+      `/myService/${user?.email}`
     );
     setService(data);
   };
@@ -32,8 +34,8 @@ const ManageService = () => {
       confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        const { data } = await axios.delete(
-          `${import.meta.env.VITE_API_URL}/myService/${id}`
+        const { data } = await axiosSecure.delete(
+          `/myService/${id}`
         );
         if (data.deletedCount === 1) {
           Swal.fire({
@@ -127,7 +129,7 @@ const ManageService = () => {
                         <td className="px-4 py-4 text-sm text-gray-800  whitespace-nowrap">
                           {service.area}
                         </td>
-                        <td className="px-4 py-4 text-sm whitespace-nowrap">
+                        <td className="px-4 py-4 text-gray-800  text-sm whitespace-nowrap">
                           <div className="flex items-center gap-x-2">
                             {service.description.substring(0, 18)}...
                           </div>

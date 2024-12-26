@@ -14,7 +14,7 @@ const Review = () => {
       <Marquee pauseOnHover>
         <div className="flex gap-4">
           {/* review-1 */}
-          <div className="card lg:card-side bg-base-100 shadow-xl">
+          <div className="card lg:card-side ml-4 dark:text-indigo-950 bg-base-100 shadow-xl">
             <figure className="">
               <img
                 className=" h-40  w-40"
@@ -34,7 +34,7 @@ const Review = () => {
             </div>
           </div>
           {/* review-2 */}
-          <div className="card lg:card-side bg-base-100 shadow-xl">
+          <div className="card lg:card-side  dark:text-indigo-950 bg-base-100 shadow-xl">
             <figure className="">
               <img
                 className=" rounded-full h-40 w-40"
@@ -54,7 +54,7 @@ const Review = () => {
             </div>
           </div>
           {/* review-3 */}
-          <div className="card lg:card-side bg-base-100 shadow-xl">
+          <div className="card lg:card-side  dark:text-indigo-950 bg-base-100 shadow-xl">
             <figure className="">
               <img
                 className=" rounded-full h-40  w-40"
@@ -74,7 +74,7 @@ const Review = () => {
             </div>
           </div>
           {/* review-4 */}
-          <div className="card lg:card-side bg-base-100 shadow-xl">
+          <div className="card lg:card-side  dark:text-indigo-950 bg-base-100 shadow-xl">
             <figure className="">
               <img
                 className=" rounded-full  h-40  w-40"
@@ -93,7 +93,7 @@ const Review = () => {
             </div>
           </div>
           {/* review-5 */}
-          <div className="card lg:card-side bg-base-100 shadow-xl">
+          <div className="card lg:card-side  dark:text-indigo-950 bg-base-100 shadow-xl">
             <figure className="">
               <img
                 className=" rounded-full  h-40  w-40"

@@ -3,8 +3,11 @@ import React, { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { AuthContext } from "../provider/AuthProvider";
 import { div, h1 } from "motion/react-client";
+import useAxiosSecure from "../hooks/useAxiosSecure";
+
 
 const AllBooked = () => {
+  const axiosSecure=useAxiosSecure()
   const { user } = useContext(AuthContext);
   const [bookedServices, setBookedServices] = useState(null);
 
@@ -13,11 +16,12 @@ const AllBooked = () => {
   }, [user]);
 
   const bookedDataFetch = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/detailsBooked/${user?.email}`
+    const { data } = await axiosSecure.get(
+      `/detailsBooked/${user?.email}`
     );
     setBookedServices(data);
   };
+  console.log(bookedServices)
 
   return (
     <div className="container mx-auto p-3 my-5">
@@ -95,7 +99,7 @@ const AllBooked = () => {
                           </td>
 
                           <td className="px-4 py-4 text-sm whitespace-nowrap">
-                            <div className="flex items-center gap-x-2">
+                            <div className="flex text-gray-800  items-center gap-x-2">
                               {booked?.date}
                             </div>
                           </td>

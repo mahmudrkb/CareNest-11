@@ -25,7 +25,7 @@ const Question = () => {
         </div>
 
         <div className="">
-          <div className="collapse mb-5 collapse-arrow bg-base-200">
+          <div className="collapse mb-5  dark:text-indigo-950 collapse-arrow bg-base-200">
             <input type="radio" name="my-accordion-2" />
             <div className="collapse-title text-xl font-medium">
               Q: What types of services do you offer?
@@ -39,7 +39,7 @@ const Question = () => {
               </p>
             </div>
           </div>
-          <div className="collapse mb-5 collapse-arrow bg-base-200 ">
+          <div className="collapse mb-5  dark:text-indigo-950 collapse-arrow bg-base-200 ">
             <input type="radio" name="my-accordion-2" defaultChecked />
             <div className="collapse-title text-xl font-medium">
               Q: Do you offer discounts or packages?
@@ -53,7 +53,7 @@ const Question = () => {
             </div>
           </div>
 
-          <div className="collapse mb-5 collapse-arrow bg-base-200">
+          <div className="collapse mb-5  dark:text-indigo-950 collapse-arrow bg-base-200">
             <input type="radio" name="my-accordion-2" />
             <div className="collapse-title text-xl font-medium">
               Q: How can I book a service?
@@ -65,7 +65,7 @@ const Question = () => {
               </p>
             </div>
           </div>
-          <div className="collapse collapse-arrow bg-base-200">
+          <div className="collapse  dark:text-indigo-950 collapse-arrow bg-base-200">
             <input type="radio" name="my-accordion-2" />
             <div className="collapse-title text-xl font-medium">
               Q: What payment methods do you accept?

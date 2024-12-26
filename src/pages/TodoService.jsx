@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { AuthContext } from "../provider/AuthProvider";
-import axios from "axios";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const TodoService = () => {
+    const axiosSecure=useAxiosSecure()
   const { user } = useContext(AuthContext);
   const [todoServices, setTodoServices] = useState(null);
 
@@ -12,8 +13,8 @@ const TodoService = () => {
   }, [user]);
 
   const bookedDataFetch = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/todoService/${user?.email}`
+    const { data } = await axiosSecure.get(
+      `/todoService/${user?.email}`
     );
     setTodoServices(data);
   };
@@ -21,7 +22,7 @@ const TodoService = () => {
   const handleStatusChange= async(id,prevStatus,status)=>{
   if(prevStatus===status|| prevStatus==="Completed") return console.log("already completed")
 try{
-    const {data}=await axios.patch(`${import.meta.env.VITE_API_URL}/statusUpdate/${id}` , {status})
+    const {data}=await axiosSecure.patch(`/statusUpdate/${id}` , {status})
     console.log(data)
     bookedDataFetch();
 
@@ -111,7 +112,7 @@ console.log(err.message)
                           </span>
                         </td>
 
-                        <td className="px-4 py-4 text-sm whitespace-nowrap">
+                        <td className="px-4 py-4 text-gray-800  text-sm whitespace-nowrap">
                           <div className="flex items-center gap-x-2">
                             {todo?.date}
                           </div>

@@ -10,7 +10,7 @@ const ServiceCard = ({ service }) => {
     <div className="my-10">
       <div data-aos="zoom-in-up"
         key={service._id}
-        className="card grid grid-cols-1 md:grid-cols-2 lg:card-side bg-base-100  shadow-xl"
+        className="card grid grid-cols-1 md:grid-cols-2 lg:card-side  shadow-xl"
       >
         <figure>
           <img className="h-full w-full " src={photo1} alt="Album" />

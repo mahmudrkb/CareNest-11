@@ -4,8 +4,11 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const AddService = () => {
+  const axiosSecure=useAxiosSecure()
+ 
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -33,7 +36,7 @@ const AddService = () => {
     console.log(formData);
 
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/add-service`, formData);
+      await axiosSecure.post(`/add-service`, formData,);
       toast.success("Service Added Successfully");
       navigate("/service");
     } catch (err) {

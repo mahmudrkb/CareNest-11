@@ -8,7 +8,7 @@ import Question from "../components/Question";
 
 const HomeLayout = () => {
   return (
-    <div className="roboto-thin">
+    <div className="roboto-thin dark:bg-indigo-950 dark:text-white">
       <header className="container mx-auto p-3 ">
         {" "}
         <Navbar></Navbar>
