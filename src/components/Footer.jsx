@@ -2,7 +2,7 @@ import logo from "../assets/logo.png";
 import { FaLinkedin } from "react-icons/fa6";
 const Footer = () => {
   return (
-    <div className=" bg-neutral text-neutral-content p-10 ">
+    <div className=" bg-base-300 dark:bg-indigo-950 border-t p-10 ">
       <footer className="footer container mx-auto">
         <div>
           <img className="w-auto bg-slate-300 rounded-full h-24" src={logo} alt="" />
@@ -50,7 +50,7 @@ const Footer = () => {
           </div>
         </nav>
       </footer>
-      <footer className="footer footer-center p-4">
+      <footer className="footer footer-center pb-0 p-4">
         <aside>
           <p>
             Copyright © {new Date().getFullYear()} - All right reserved by

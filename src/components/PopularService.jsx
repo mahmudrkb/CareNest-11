@@ -37,7 +37,7 @@ const PopularService = () => {
       </div>
      
        <div className="flex justify-end">
-       <Link className=" btn   px-8  btn-primary mr-7 " to={"/service"}>
+       <Link className=" btn   px-8 hover:text-indigo-950  btn-primary mr-7 " to={"/service"}>
           See All <FaArrowRight />{" "}
         </Link>
        </div>

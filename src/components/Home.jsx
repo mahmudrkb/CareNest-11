@@ -6,6 +6,7 @@ import Question from "./Question";
 import Footer from "./Footer";
 import PopularService from "./PopularService";
 import { Helmet } from "react-helmet";
+import Contact from "./Contact";
 
 const Home = () => {
   return (
@@ -27,6 +28,9 @@ const Home = () => {
         </section>
         <section>
           <Question></Question>
+        </section>
+        <section>
+          <Contact></Contact>
         </section>
       </main>
     </div>

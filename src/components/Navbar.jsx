@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext,  } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { IoMoon, IoSunny } from "react-icons/io5";
 
@@ -13,8 +13,7 @@ const Navbar = () => {
     navigate("/");
   };
 
-
-  // visit medium 
+  // visit medium
   //tailwind config add darkMode: 'class',
   const [dark, setDark] = React.useState(false);
 
@@ -23,22 +22,16 @@ const Navbar = () => {
     document.body.classList.toggle("dark");
   };
 
-
-  
-
   return (
-    <div>
-      <div className="  flex justify-end">
-        <button className="text-3xl mr-5" onClick={darkModeHandler}>
-          {dark ? <IoSunny/> :<IoMoon />}
-         
-        </button>
-      </div>
-
+    <div className=" fixed top-0 left-0  w-full z-10 bg-white dark:bg-indigo-950 ">
       <div className="navbar shadow-sm container  mx-auto">
         <div className="flex-1">
           <Link to="/" className="flex md:gap-3 items-center">
-            <img  className=" dark:bg-slate-300 rounded-full h-20" src={logo} alt="" />
+            <img
+              className=" bg-slate-300 rounded-full h-12"
+              src={logo}
+              alt=""
+            />
           </Link>
         </div>
         <div className="flex-none">
@@ -46,12 +39,12 @@ const Navbar = () => {
             <li className="dark:bg-slate-400 dark:rounded-2xl">
               <Link to="/">Home </Link>
             </li>
-            <li  className="dark:bg-slate-400 dark:rounded-2xl">
+            <li className="dark:bg-slate-400 dark:rounded-2xl">
               <Link to="/service">Service</Link>
             </li>
 
             {user && (
-              <li  className="dark:bg-slate-400 dark:rounded-2xl">
+              <li className="dark:bg-slate-400 dark:rounded-2xl">
                 <div
                   tabIndex={0}
                   role="button"
@@ -116,6 +109,11 @@ const Navbar = () => {
               </ul>
             </div>
           )}
+          <div className="  flex justify-end">
+            <button className="text-3xl mx-5" onClick={darkModeHandler}>
+              {dark ? <IoSunny /> : <IoMoon />}
+            </button>
+          </div>
         </div>
       </div>
     </div>
