@@ -33,17 +33,15 @@ const AllService = () => {
   //   services || {};
   // console.log(services);
   return (
-    <div>
+    <div className="mt-10">
             <Helmet>
         <title>All Service || CareNest</title>
       </Helmet>
       <div className="container mx-auto ">
         <div
-          className="hero min-h-screen"
-          style={{
-            backgroundImage:
-              "url(https://d3tl80hy6t5toy.cloudfront.net/wp-content/uploads/sites/4/2014/08/06051815/service-industry.jpg)",
-          }}
+          className="hero max-h-96 rounded-xl object-cover 
+              h-screen bg-cover bg-no-repeat bg-center bg-[url(https://media.licdn.com/dms/image/v2/D5612AQEhqucxP-6M6w/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1719334842545?e=2147483647&v=beta&t=8ebezG2nyhAl8kYF-IeFTjfNUu5CF53PZN2MYMm1sZM)]  "
+         
         >
           <div className="hero-overlay bg-opacity-60">
             <div className="flex justify-end m-16">
@@ -66,8 +64,8 @@ const AllService = () => {
               />
             </div>{" "}
           </div>
-          <div className="hero-content text-neutral-content text-center">
-            <div className="max-w-md">
+          <div className="hero-content flex-col items-center h-96  text-neutral-content text-center  ">
+            <div className=" max-w-md">
               <h1 className="mb-5 animate__animated  animate__backInDown text-3xl md:text-5xl font-bold">
                 All Service Here
               </h1>
