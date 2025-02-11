@@ -51,6 +51,35 @@
 
 </div>
 
+  <div>
+
+ <h3 class="font-semibold">Frontend Technologies:</h3>
+  <ul>
+    <li><strong>React.js</strong> – For building the user interface efficiently with reusable components.</li>
+    <li><strong>React Router</strong> – For seamless navigation between different pages (e.g., Home, Service, Dashboard).</li>
+    <li><strong>Tailwind CSS </strong> – For styling and making the UI responsive.</li>
+    <li><strong>React-Toastify</strong> – For displaying success/error notifications.</li>
+    <li><strong>Framer Motion</strong> – For animations and smooth UI interactions.</li>
+  </ul>
+  </div>
+  
+<div>
+  <h3 class="font-semibold">Authentication</h3>
+
+  <h5>Register a User</h5>
+  <p><strong>POST /register</strong> - Registers a new user in the system.</p>
+
+  <h5>Login</h5>
+  <p><strong>POST /users</strong> - Authenticates a user and provides a JWT token.</p>
+
+  <h5>Logout</h5>
+  <p><strong>POST /logout</strong> - Logs out the user and clears the authentication token from cookies.</p>
+
+  <h5>JWT Authentication</h5>
+  <p><strong>GET /jwt</strong> - Verifies the JWT token from cookies to authenticate the user.</p>
+  </div>
+
+
 <div>
     <h3 className="font-semibold">NPM Packages</h3>
     <ul>
@@ -62,16 +91,7 @@
     </ul>
 </div>
 
-## 📂 Dashboard & Routes
 
-<ul>
- 
-  <li><strong>/addService</strong> - User can add new home services by providing details such as service name, description, price, and image.</li>
-  <li><strong>/manage</strong> - User can view, update, and delete existing services from the database, ensuring up-to-date service availability.</li>
-    <li><strong>/booked</strong> - Users can book a home service by selecting a category, entering details, and confirming their request.</li>
-  <li><strong>/todo</strong> - Displays a list of pending service tasks assigned to service providers, allowing them to track and complete assigned services.</li>
-
-</ul>
 
 <div>
  <h3 className="font-semibold"> Key Page </h3>
