@@ -1,7 +1,7 @@
   <div>  <h1 className="font-bold">CareNest 🏡 </h1>
     <h2><span className="font-semibold">🚀 Live Link : https://assignment-11-851e3.web.app/ </span> </h2>
 
-   <h4><span className="font-semibold">Live Link : https://docs.google.com/document/d/11pZDCpZq-XM8ZTgm33h_gKcV5nuV5g96N-ZWf4MH9so/edit?tab=t.0 </span> </h4>
+   <h4><span className="font-semibold">Docs  : https://docs.google.com/document/d/11pZDCpZq-XM8ZTgm33h_gKcV5nuV5g96N-ZWf4MH9so/edit?tab=t.0 </span> </h4>
     </div>
 
   <a href="https://github.com/mahmudrkb/CareNest-server-11" target="_blank"
