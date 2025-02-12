@@ -102,7 +102,7 @@ const AllService = () => {
             </div>
           </form>
         </div>
-        <div className=" p-3">
+        <div className=" p-3 lg:grid grid-cols-2 gap-5">
           {services.map((service) => (
             <ServiceCard key={service._id} service={service}></ServiceCard>
           ))}
