@@ -23,7 +23,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className=" fixed top-0 left-0  w-full z-10 bg-white dark:bg-indigo-950 ">
+    <div className=" fixed top-0 left-0  w-full z-10 dark:bg-indigo-950 bg-base-200 shrink-md shadow-md">
       <div className="navbar shadow-sm container  mx-auto">
         <div className="flex-1">
           <Link to="/" className="flex md:gap-3 items-center">
@@ -41,6 +41,9 @@ const Navbar = () => {
             </li>
             <li className="dark:bg-slate-400 dark:rounded-2xl">
               <Link to="/service">Service</Link>
+            </li>
+            <li className="dark:bg-slate-400 dark:rounded-2xl">
+              <Link to="/contact">Contact Us</Link>
             </li>
 
             {user && (
