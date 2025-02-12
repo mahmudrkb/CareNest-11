@@ -7,7 +7,7 @@ import { Helmet } from "react-helmet";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const AllService = () => {
-  const axiosSecure=useAxiosSecure()
+  const axiosSecure = useAxiosSecure();
   const box1 = {
     width: 50,
     height: 50,
@@ -15,33 +15,40 @@ const AllService = () => {
     borderRadius: 5,
   };
   const [services, setService] = useState([]);
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
+  const [sort,setSort]=useState("asc")
 
   useEffect(() => {
     allServiceFetch();
-  }, [ search]);
+  }, [search]);
 
   const allServiceFetch = async () => {
-    const { data } = await axiosSecure.get(
-      `/allService?search=${search}`,
-      
-    );
+    const { data } = await axiosSecure.get(`/allService?search=${search}`);
     setService(data);
   };
+
+ 
+
+  const handleSort=()=>{
+    const sortedService= [...services].sort((a,b)=>
+    sort==="asc" ?  a.price-b.price : b.price-a.price )
+    setService(sortedService)
+    setSort(sort==="asc" ? "desc" :"asc")
+
+  }
 
   // const { _id, photo1, name1, price, area, description, provider } =
   //   services || {};
   // console.log(services);
   return (
     <div className="mt-10">
-            <Helmet>
+      <Helmet>
         <title>All Service || CareNest</title>
       </Helmet>
       <div className="container mx-auto ">
         <div
           className="hero max-h-96 rounded-xl object-cover 
               h-screen bg-cover bg-no-repeat bg-center bg-[url(https://media.licdn.com/dms/image/v2/D5612AQEhqucxP-6M6w/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1719334842545?e=2147483647&v=beta&t=8ebezG2nyhAl8kYF-IeFTjfNUu5CF53PZN2MYMm1sZM)]  "
-         
         >
           <div className="hero-overlay bg-opacity-60">
             <div className="flex justify-end m-16">
@@ -85,7 +92,8 @@ const AllService = () => {
           <h1 className="text-3xl  font-bold">
             All Service : {services.length}
           </h1>
-          <form>
+        <div className="flex items-center gap-3">
+        <form>
             <div className="flex justify-end p-1 overflow-hidden border rounded-lg    focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
               <input
                 className="px-3   text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent"
@@ -101,6 +109,8 @@ const AllService = () => {
               </button>
             </div>
           </form>
+          <button onClick={handleSort} className="btn p-2    btn-primary" >Sort By Price ({sort==="asc"? "High to Low" : "Low to High"}) </button>
+        </div>
         </div>
         <div className=" p-3 lg:grid grid-cols-2 gap-5">
           {services.map((service) => (
