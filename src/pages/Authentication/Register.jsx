@@ -53,7 +53,7 @@ const Register = () => {
       <Helmet>
         <title>Register || CareNest</title>
       </Helmet>
-      <div className="  sm:mx-auto sm:w-full sm:max-w-sm">
+      <div className="  sm:mx-auto mt-16 sm:w-full sm:max-w-sm">
         <h2 className="mt-10 text-center text-3xl font-bold ">
           <span className="text-indigo-600"> Sign Up</span> to your account
         </h2>

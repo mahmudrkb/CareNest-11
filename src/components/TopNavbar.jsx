@@ -122,8 +122,8 @@ const TopNavbar = () => {
             </div>
           )}
           {!user && (
-           <ul>
-             <li className="dark:bg-slate-400 none font-semibold  dark:rounded-2xl">
+           <ul className="">
+             <li className="dark:bg-slate-400 px-3 py-1 none font-semibold  dark:rounded-2xl">
               <Link to="/login">Login</Link>
             </li>
            </ul>
