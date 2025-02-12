@@ -24,13 +24,13 @@ const TopNavbar = () => {
   };
   const route = (
     <>
-      <li className="dark:bg-slate-400 font-semibold dark:rounded-2xl">
+      <li className="dark:bg-slate-400 mx-2  font-semibold dark:rounded-2xl">
         <Link to="/">Home </Link>
       </li>
-      <li className="dark:bg-slate-400 font-semibold dark:rounded-2xl">
+      <li className="dark:bg-slate-400 mx-2 font-semibold dark:rounded-2xl">
         <Link to="/service">Service</Link>
       </li>
-      <li className="dark:bg-slate-400 font-semibold dark:rounded-2xl">
+      <li className="dark:bg-slate-400 mx-2 font-semibold dark:rounded-2xl">
         <Link to="/contact">Contact Us</Link>
       </li>
     </>
@@ -59,7 +59,7 @@ const TopNavbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content dark:bg-slate-200   gap-2 bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow "
+              className="menu  menu-sm dropdown-content dark:bg-slate-200   gap-2 bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow "
             >
               {route}
             </ul>
@@ -75,7 +75,7 @@ const TopNavbar = () => {
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{route}</ul>
+          <ul className="menu menu-horizontal px-2">{route}</ul>
         </div>
         <div className="navbar-end">
           {user && (
