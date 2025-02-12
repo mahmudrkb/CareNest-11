@@ -34,7 +34,7 @@ try{
   }
 
   return (
-    <div className="container mx-auto p-3 my-5">
+    <div className="container mx-auto p-3 my-10">
       <Helmet>
         <title>Service To Do || CareNest</title>
       </Helmet>

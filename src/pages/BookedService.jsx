@@ -69,7 +69,7 @@ const BookedService = () => {
       <Helmet>
         <title>Booked Service || CareNest</title>
       </Helmet>
-      <div className=" container mx-auto p-3 mb-5 ">
+      <div className=" container mx-auto p-3 mb-5 mt-5 ">
         <h2 className="mt-10 text-center text-3xl font-bold ">
           <span className="text-indigo-600"> Booked</span> Your Service
         </h2>

@@ -24,7 +24,7 @@ const AllBooked = () => {
   // console.log(bookedServices)
 
   return (
-    <div className="container mx-auto p-3 my-5">
+    <div className="container mx-auto p-3 my-10">
       <Helmet>
         <title>All Booked || CareNest</title>
       </Helmet>

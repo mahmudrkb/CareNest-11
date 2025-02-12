@@ -25,7 +25,7 @@ const DetailsService = () => {
     service || [];
 // console.log(service)
   return (
-    <div className="my-10 container mx-auto p-3">
+    <div className="my-16 container mx-auto p-3">
             <Helmet>
         <title>Details Service || CareNest</title>
       </Helmet>

@@ -55,7 +55,7 @@ const ManageService = () => {
             <Helmet>
         <title>Manage Service || CareNest</title>
       </Helmet>
-      <div className="container mx-auto p-3 my-5">
+      <div className="container mx-auto p-3 my-10">
         <div className="flex items-center gap-x-3">
           <h2 className=" text-xl md:text-3xl font-semibold   ">My Services</h2>
 
