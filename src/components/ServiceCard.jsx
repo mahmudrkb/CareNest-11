@@ -22,7 +22,7 @@ const ServiceCard = ({ service }) => {
           />
         </figure>
 
-        <div className="card-body bg-base-200 rounded-md">
+        <div className="card-body bg-base-200 text-black rounded-md">
           <h2 className="card-title">{name1}</h2>
           <div className="flex justify-between">
             <address className="font-semibold"> {area}</address>

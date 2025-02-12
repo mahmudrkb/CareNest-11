@@ -33,7 +33,7 @@ const DetailsService = () => {
         <figure>
           <img className="h-full w-full " src={photo1} alt="Album" />
         </figure>
-        <div className="card-body">
+        <div className="card-body text-black ">
           <h2 className="card-title">{name1}</h2>
           <p>{description}</p>
 
