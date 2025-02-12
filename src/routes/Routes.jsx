@@ -13,6 +13,8 @@ import UpdateService from "../pages/UpdateService";
 import BookedService from "../pages/BookedService";
 import AllBooked from "../pages/AllBooked";
 import TodoService from "../pages/TodoService";
+import Contact from "../components/Contact";
+import ContactUs from "../components/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Register></Register>,
+      },
+      {
+        path: "/contact",
+        element: <ContactUs></ContactUs>,
       },
       {
         path: "/addService",
