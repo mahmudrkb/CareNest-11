@@ -15,6 +15,7 @@ import AllBooked from "../pages/AllBooked";
 import TodoService from "../pages/TodoService";
 import Contact from "../components/Contact";
 import ContactUs from "../components/ContactUs";
+import AboutUs from "../components/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <ContactUs></ContactUs>,
+      },
+      {
+        path: "/about",
+        element: <AboutUs></AboutUs>,
       },
       {
         path: "/addService",

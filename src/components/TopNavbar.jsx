@@ -31,7 +31,10 @@ const TopNavbar = () => {
         <Link to="/service">Service</Link>
       </li>
       <li className="dark:bg-slate-400 mx-2 font-semibold dark:rounded-2xl">
-        <Link to="/contact">Contact Us</Link>
+        <Link to="/contact">Contact </Link>
+      </li>
+      <li className="dark:bg-slate-400 mx-2 font-semibold dark:rounded-2xl">
+        <Link to="/about">About Us</Link>
       </li>
     </>
   );
