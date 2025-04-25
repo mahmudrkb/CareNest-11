@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import React, { useContext,  } from "react";
 import { AuthContext } from "../provider/AuthProvider";
@@ -37,13 +37,13 @@ const Navbar = () => {
         <div className="flex-none">
           <ul className="menu  font-bold menu-horizontal md:px-1">
             <li className="dark:bg-slate-400 dark:rounded-2xl">
-              <Link to="/">Home </Link>
+              <NavLink to="/">Home </NavLink>
             </li>
             <li className="dark:bg-slate-400 dark:rounded-2xl">
-              <Link to="/service">Service</Link>
+              <NavLink to="/service">Service</NavLink>
             </li>
             <li className="dark:bg-slate-400 dark:rounded-2xl">
-              <Link to="/contact">Contact Us</Link>
+              <NavLink to="/contact">Contact Us</NavLink>
             </li>
 
             {user && (

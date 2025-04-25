@@ -6,6 +6,7 @@ import { RouterProvider } from "react-router-dom";
 import router from "./routes/Routes.jsx";
 import AuthProvider from "./provider/AuthProvider.jsx";
 import { Toaster } from "react-hot-toast";
+import "./index.css";
 
 
 createRoot(document.getElementById("root")).render(

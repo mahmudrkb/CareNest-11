@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import React, { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
@@ -24,17 +24,17 @@ const TopNavbar = () => {
   };
   const route = (
     <>
-      <li className="dark:bg-slate-400 mx-2  font-semibold dark:rounded-2xl">
-        <Link to="/">Home </Link>
+      <li className="dark:bg-slate-400 mx-2   font-semibold dark:rounded-2xl">
+        <NavLink to="/">Home </NavLink>
       </li>
       <li className="dark:bg-slate-400 mx-2 font-semibold dark:rounded-2xl">
-        <Link to="/service">Service</Link>
+        <NavLink to="/service">Service</NavLink>
       </li>
       <li className="dark:bg-slate-400 mx-2 font-semibold dark:rounded-2xl">
-        <Link to="/contact">Contact </Link>
+        <NavLink to="/contact">Contact </NavLink>
       </li>
       <li className="dark:bg-slate-400 mx-2 font-semibold dark:rounded-2xl">
-        <Link to="/about">About Us</Link>
+        <NavLink to="/about">About Us</NavLink>
       </li>
     </>
   );
