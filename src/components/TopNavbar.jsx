@@ -24,16 +24,16 @@ const TopNavbar = () => {
   };
   const route = (
     <>
-      <li className="dark:bg-slate-400 mx-2   font-semibold dark:rounded-2xl">
+      <li className="dark:bg-slate-400 mx-2   font-semibold dark:rounded-xl">
         <NavLink to="/">Home </NavLink>
       </li>
-      <li className="dark:bg-slate-400 mx-2 font-semibold dark:rounded-2xl">
+      <li className="dark:bg-slate-400 mx-2 font-semibold dark:rounded-xl">
         <NavLink to="/service">Service</NavLink>
       </li>
-      <li className="dark:bg-slate-400 mx-2 font-semibold dark:rounded-2xl">
+      <li className="dark:bg-slate-400 mx-2 font-semibold dark:rounded-xl">
         <NavLink to="/contact">Contact </NavLink>
       </li>
-      <li className="dark:bg-slate-400 mx-2 font-semibold dark:rounded-2xl">
+      <li className="dark:bg-slate-400 mx-2 font-semibold dark:rounded-xl">
         <NavLink to="/about">About Us</NavLink>
       </li>
     </>
@@ -98,7 +98,7 @@ const TopNavbar = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm  dropdown-content mt-3 z-[1] p-3 shadow dark:bg-slate-400 dark:rounded-2xl bg-base-200 rounded-box w-52 font-semibold "
+                className="menu menu-sm  dropdown-content mt-3 z-[1] p-3 shadow dark:bg-slate-400 dark:rounded-xl bg-base-200 rounded-box w-52 font-semibold "
               >
                 <li>
                   <Link to="/addService">Add Service</Link>
@@ -126,7 +126,7 @@ const TopNavbar = () => {
           )}
           {!user && (
            <ul className="">
-             <li className="dark:bg-slate-400 px-3 py-1 none font-semibold  dark:rounded-2xl">
+             <li className="dark:bg-slate-400 px-3 py-1 none font-semibold  dark:rounded-xl">
               <Link to="/login">Login</Link>
             </li>
            </ul>
